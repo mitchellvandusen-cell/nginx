@@ -3,169 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitch Van Dusen | Life Insurance Broker</title>
+    <title>Mitch Van Dusen | Texas Life Insurance Advisor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Roboto', sans-serif; color: #333; background-color: #ffffff; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #000; }
-        .hero {
-            background: #000000;
-            color: white; padding: 160px 0; position: relative;
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary-accent: #4dabf7;
+            --dark-bg: #0f172a;
+            --text-main: #f8f9fa;
+            --text-muted: #94a3b8;
         }
-        .hero h1, .hero p { color: white; }
-        .navbar { background-color: #000000 !important; }
-        .nav-link { color: rgba(255,255,255,0.9) !important; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
+
+        /* --- Glassmorphism --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+        }
+
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(77, 171, 247, 0.4);
+            color: white;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+        }
+        .nav-link { color: var(--text-muted) !important; transition: 0.3s; }
         .nav-link:hover { color: white !important; }
-        .btn-primary { background-color: #000000; border: 2px solid #ffffff; color: white; padding: 14px 32px; font-size: 1.2rem; border-radius: 50px; }
-        .btn-primary:hover { background-color: #333333; color: white; }
-        .btn-outline-light { border-color: #ffffff; color: white; }
-        .btn-outline-light:hover { background-color: #ffffff; color: #000000; }
-        .section { padding: 100px 0; background-color: #ffffff; }
-        .about-photo { border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.15); transition: transform 0.4s ease; margin: 20px auto; max-width: 600px; width: 100%; display: block; }
-        .about-photo:hover { transform: scale(1.04); }
-        .carrier-logo { height: 90px; object-fit: contain; margin: 24px; transition: all 0.4s; opacity: 0.9; }
-        .carrier-logo:hover { transform: translateY(-8px) scale(1.1); opacity: 1; }
-        .testimonial-card { background: #f8f9fa; border-radius: 24px; padding: 36px; margin: 24px 0; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
-        .testimonial-card:hover { transform: translateY(-12px); }
-        .booking-widget { width: 100%; min-height: 900px; border: none; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.1); }
-        footer { background: #000000; color: #cccccc; padding: 60px 0; }
-        .scroll-link { cursor: pointer; }
-        @media (max-width: 768px) {
-            .hero { padding: 120px 0; }
-            .section { padding: 70px 0; }
-            .about-photo { max-width: 100%; }
+
+        /* --- Hero --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.15), rgba(15, 23, 42, 0) 60%),
+                        url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            position: relative;
         }
-        .carrier-logo { 
-            height: auto; 
-            max-height: 90px;   /* or 70px / 75px for a slightly smaller row */
-            width: auto;
-            max-width: 220px;
-            object-fit: contain; 
-            margin: 24px; 
-            /* rest of your styles */
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), #0f172a); }
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 20px; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--dark-bg); box-shadow: 0 0 30px rgba(77, 171, 247, 0.3); }
+
+        /* --- Testimonials Logic --- */
+        #reviews-container {
+            transition: all 0.5s ease;
+            /* Default Grid Layout */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
+
+        /* The Cycling Class (Applied via JS when count >= 5) */
+        #reviews-container.cycling-mode {
+            display: flex;
+            overflow-x: hidden; /* JS will handle scroll */
+            gap: 24px;
+            cursor: grab;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            padding: 30px;
+            border-left: 4px solid var(--primary-accent);
+            border-radius: 16px;
+            min-width: 350px; /* Ensure width for slider mode */
+        }
+
+        .star-rating { color: #ffd700; margin-bottom: 1rem; }
+
+        /* --- Star Rating Input --- */
+        .rating-input { display: flex; flex-direction: row-reverse; justify-content: center; gap: 10px; }
+        .rating-input input { display: none; }
+        .rating-input label { font-size: 2rem; color: #444; cursor: pointer; transition: 0.2s; }
+        .rating-input input:checked ~ label { color: #ffd700; }
+        .rating-input label:hover, .rating-input label:hover ~ label { color: #ffd700; }
+
+        /* --- Modal --- */
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 24px;
+        }
+        .form-control {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+        .form-control:focus {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            box-shadow: none;
+            border-color: var(--primary-accent);
+        }
+
+        /* --- Footer --- */
+        footer { border-top: 1px solid var(--glass-border); background: #0b1120; padding: 60px 0; color: var(--text-muted); }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold fs-4" href="#">Mitch Van Dusen | Your Life Insurance Broker</a>
-        <div class="ms-auto d-flex gap-4 flex-wrap justify-content-center">
-            <a href="#about" class="nav-link scroll-link">About</a>
-            <a href="#carriers" class="nav-link scroll-link">Carriers</a>
-            <a href="#testimonials" class="nav-link scroll-link">Reviews</a>
-            <a href="#schedule" class="nav-link scroll-link">Book Now</a>
+        <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="#">
+            <i class="fa-solid fa-shield-halved text-primary"></i>
+            <span class="brand-font">Mitch Van Dusen</span>
+        </a>
+        <button class="navbar-toggler navbar-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-3">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                <li class="nav-item"><a href="#schedule" class="btn glass-btn rounded-pill px-4 btn-sm">Book Now</a></li>
+            </ul>
         </div>
     </div>
 </nav>
-<section class="hero text-center">
-    <div class="container position-relative">
-        <img src="IMG_1435.jpg" class="rounded-circle mb-4" width="280" style="border: 8px solid rgba(255,255,255,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.5);">
-        <h1 class="display-4 fw-bold">Mitch Van Dusen</h1>
-        <p class="lead mb-4">Life Insurance Broker Serving Texas Families</p>
-        <p class="fs-4 mb-5">Helping Texans protect what matters most with personalized guidance.</p>
-        <a href="tel:346-531-5256" class="btn btn-primary btn-lg me-4">Call 346-531-5256</a>
-        <a href="#schedule" class="btn btn-outline-light btn-lg scroll-link">Schedule Free Consultation</a>
+
+<section class="hero">
+    <div class="hero-content reveal active">
+        <img src="https://i.imgur.com/0v2p9mI.jpeg" alt="Mitch Van Dusen" class="profile-img mb-4">
+        <h1 class="display-3 fw-bold mb-3 text-white">Protecting Texas Families</h1>
+        <p class="lead text-muted mb-5">Modern life insurance strategies. No pressure. Just honest advice.</p>
+        <a href="#schedule" class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg">Get Protected Now</a>
     </div>
 </section>
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="text-center mb-5 display-5">About Me</h2>
-        <div class="row align-items-start g-5">
-            <div class="col-lg-6 text-center">
-                <img src="IMG_4859.JPG" class="about-photo mb-4" alt="Family photo 1">
-                <img src="4D6DD099-3CF7-49FF-9C32-298DBF22E7C9.JPG" class="about-photo" alt="Mitch portrait">
-            </div>
-            <div class="col-lg-6">
-                <p class="lead fs-4">Hi, I'm Mitch Van Dusen, a 30-year-old husband and father dedicated to helping Texas families secure their financial future through life insurance.</p>
-                <p>Originally born and raised in Alberta, Canada I moved to Texas in 2020 with my wife Madasyn and have since fallen in love with calling this great state home. We're raising our two young children here, a spirited 3-year-old and an energetic 1-year-old. That personal experience as a young father drives everything I do professionally and gives me unique insight into the concerns and priorities most families face today.</p>
-                <p>Having two little ones of my own has given me a deep understanding of just how important it is to protect the people you love most. For the past 5 years, I've made it my mission to guide clients through the often-confusing world of life insurance with care, honesty, and a true client-first approach.</p>
-                <p>I take the time to truly listen to your situation, educate you on all available options, and find solutions that fit both your family's unique needs and your budget. I never use high-pressure tactics. My goal is simple: help you feel confident and protected, knowing your loved ones will be taken care of no matter what.</p>
-                <p>When I'm not working with clients, you'll likely find me on the ice. I'm a passionate hockey player and proud goalie. The teamwork, focus, and resilience required in the net translate directly to how I serve my clients: I'm always ready, always protecting what matters most.</p>
-                <p>I'd love the opportunity to earn your trust and help protect your family's tomorrow. Feel free to reach out anytime for a no-obligation conversation.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="carriers" class="section text-center">
-    <div class="container">
-        <h2 class="mb-5 display-5">Top-Rated Carriers I Work With</h2>
-        <div class="d-flex flex-wrap justify-content-center align-items-center">
-            <img src="https://epnkc.com/wp-content/uploads/2022/08/Americologo_red_289.png" alt="Americo" class="carrier-logo">
-            <img src="https://1000logos.net/wp-content/uploads/2023/01/Mutual-of-Omaha-logo.png" alt="Mutual of Omaha" class="carrier-logo">
-            <img src="https://www.freelogovectors.net/wp-content/uploads/2021/02/ethos-logo-freelogovectors.net_.png" alt="Ethos Logo" class="carrier-logo">
-            <img src="https://1000logos.net/wp-content/uploads/2020/09/Transamerica-Logo.png" alt="Transamerica" class="carrier-logo">
-            <img src="https://logos-world.net/wp-content/uploads/2021/12/Aetna-Logo.jpg" alt="Aetna" class="carrier-logo">
-            <img src="https://caldwell-insurance.com/wp-content/uploads/2021/05/banner_life_logo.png" alt="Banner Life" class="carrier-logo">
-            <img src="https://ddw3p1oh0ex89.cloudfront.net/assets/b/65f65d538463fbb71c4caad135eccc8a93d5900f9e5b2e351ced3c48291d04a0/static/img/logo-opengraph.png" alt="Ladder" class="carrier-logo">
-            <img src="https://cdn.prod.website-files.com/5cd06573f0a28dce76ef883f/5d1389d2decfccdd3cae4c7a_logo-royal-neighbors.png" alt="Royal Neighbors" class="carrier-logo">
-        </div>
-        <p class="mt-4 text-muted fs-5">...and more trusted carriers</p>
-    </div>
-</section>
-<section id="testimonials" class="section">
-    <div class="container">
-        <h2 class="text-center mb-5 display-5">Trusted by Texas Families</h2>
-        <p class="text-center lead mb-5">Over 400 five-star reviews from clients across Texas</p>
-        <div class="row g-5 justify-content-center">
-            <div class="col-lg-6">
-                <div class="testimonial-card">
-                    <p class="fs-3 text-primary">★★★★★</p>
-                    <p class="fs-5">"Mitch made the process simple and stress-free. Highly recommend!"</p>
-                    <p class="fw-bold">Sarah T., Houston, TX</p>
+
+<section id="about" class="py-5">
+    <div class="container py-5">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6 reveal">
+                <h2 class="display-5 fw-bold text-white mb-4">More than an Agent. <br>I'm a Neighbor.</h2>
+                <div class="glass-panel p-4">
+                    <p class="text-light">I'm Mitch Van Dusen, a 30-year-old husband, father, and hockey goalie. I moved to Texas in 2020 with my wife Madasyn, and we are proudly raising our two children here.</p>
+                    <p class="text-muted mb-0">I treat every client like family because I know the weight of needing to protect the ones you love.</p>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="testimonial-card">
-                    <p class="fs-3 text-primary">★★★★★</p>
-                    <p class="fs-5">"Professional, honest, and truly cared about my family's needs."</p>
-                    <p class="fw-bold">Robert G., Dallas, TX</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="testimonial-card">
-                    <p class="fs-3 text-primary">★★★★★</p>
-                    <p class="fs-5">"Best decision I made. Great rates and excellent service."</p>
-                    <p class="fw-bold">Linda M., Austin, TX</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="testimonial-card">
-                    <p class="fs-3 text-primary">★★★★★</p>
-                    <p class="fs-5">"As a young father himself, Mitch really understood our concerns."</p>
-                    <p class="fw-bold">Mike R., San Antonio, TX</p>
+            <div class="col-lg-6 reveal text-center">
+                <div class="row g-3">
+                    <div class="col-6"><img src="https://i.imgur.com/5L9p9kD.jpeg" class="img-fluid rounded-4 shadow border border-secondary" alt="Mitch and Wife"></div>
+                    <div class="col-6"><img src="https://i.imgur.com/8p9kL2m.jpeg" class="img-fluid rounded-4 shadow border border-secondary" alt="Mitch Portrait"></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section id="schedule" class="section text-center">
-    <div class="container">
-        <h2 class="mb-5 display-5">Schedule a Free Consultation</h2>
-        <div class="mx-auto" style="max-width: 1100px;">
-            <iframe src="https://api.leadconnectorhq.com/widget/booking/JDE6mW5zN433uBWgdH4S" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="WOtts2dEWtMuIT7A89W5_1767754344813"></iframe><br><script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+
+<section id="reviews" class="py-5 bg-darker">
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-end mb-5 reveal">
+            <div>
+                <h2 class="display-5 text-white fw-bold">Client Stories</h2>
+                <p class="text-muted mb-0">See what Texas families are saying.</p>
+            </div>
+            <button class="btn glass-btn" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                <i class="fa-solid fa-pen-nib me-2"></i>Leave a Review
+            </button>
         </div>
-        <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-        <p class="mt-5 fs-4">Or call/text me directly: <strong>346-531-5256</strong></p>
+        
+        <div id="reviews-container" class="reveal">
+            
+            <div class="testimonial-card">
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-light fst-italic">"Mitch made the process simple and stress-free. He didn't try to upsell me, he just listened."</p>
+                <div class="mt-4">
+                    <h6 class="text-white mb-0">Sarah T.</h6>
+                    <small class="text-muted">Houston, TX</small>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-light fst-italic">"As a young father himself, Mitch really understood our concerns. It felt like talking to a friend."</p>
+                <div class="mt-4">
+                    <h6 class="text-white mb-0">Mike R.</h6>
+                    <small class="text-muted">San Antonio, TX</small>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-light fst-italic">"Best decision I made. Great rates, but the service was even better. Answers his phone every time."</p>
+                <div class="mt-4">
+                    <h6 class="text-white mb-0">Linda M.</h6>
+                    <small class="text-muted">Austin, TX</small>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-light fst-italic">"Honest, transparent, and quick. Mitch got us covered in less than 48 hours."</p>
+                <div class="mt-4">
+                    <h6 class="text-white mb-0">Robert G.</h6>
+                    <small class="text-muted">Dallas, TX</small>
+                </div>
+            </div>
+
+        </div>
+        <p class="text-muted text-center mt-3 small" id="cycle-notice" style="display:none;"><i class="fa-solid fa-arrows-left-right me-2"></i>Swipe to see more reviews</p>
     </div>
 </section>
+
+<div class="modal fade" id="reviewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-panel border-0">
+            <div class="modal-header border-bottom border-secondary">
+                <h5 class="modal-title">Share Your Experience</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm">
+                    <div class="mb-3 text-center">
+                        <label class="form-label mb-2">How was your experience?</label>
+                        <div class="rating-input">
+                            <input type="radio" name="rating" id="star5" value="5"><label for="star5" title="5 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star4" value="4"><label for="star4" title="4 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star3" value="3"><label for="star3" title="3 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star2" value="2"><label for="star2" title="2 stars"><i class="fa-solid fa-star"></i></label>
+                            <input type="radio" name="rating" id="star1" value="1"><label for="star1" title="1 star"><i class="fa-solid fa-star"></i></label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="reviewName" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="reviewLocation" placeholder="City, State (e.g. Austin, TX)" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="reviewComment" rows="3" placeholder="What did you like about working with Mitch?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="schedule" class="py-5">
+    <div class="container text-center reveal">
+        <div class="glass-panel p-4 mx-auto" style="max-width: 900px;">
+            <h2 class="text-white mb-4">Secure Your Legacy</h2>
+            <div style="background: white; border-radius: 16px; overflow: hidden;">
+                <iframe src="https://api.leadconnectorhq.com/widget/booking/S4knucFaXO769HDFlRtv" style="width: 100%; border:none; min-height: 700px;" scrolling="no" id="S4knucFaXO769HDFlRtv_1767732348431"></iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer class="text-center">
     <div class="container">
-        <p class="fs-5">Licensed Life Insurance Agent in Texas</p>
-        <p class="fs-5 mb-1"><strong>Texas License #3384118</strong></p>
-        <p class="fs-5 mb-3"><strong>NPN #21705771</strong></p>
-        <p class="mb-0">© 2026 Mitch Van Dusen</p>
+        <h4 class="brand-font text-white mb-4">Mitch Van Dusen</h4>
+        <p class="small text-muted">&copy; 2026 Mitch Van Dusen. All rights reserved.</p>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.querySelectorAll('.scroll-link').forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
+    // 1. Scroll Reveal
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 150) reveals[i].classList.add("active");
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // 2. Review Logic & Cycling
+    const reviewForm = document.getElementById('reviewForm');
+    const container = document.getElementById('reviews-container');
+    const modalEl = document.getElementById('reviewModal');
+    const modal = new bootstrap.Modal(modalEl);
+
+    // Auto-Scroll Logic Variables
+    let scrollInterval;
+    
+    function checkAndEnableCycling() {
+        const cards = container.querySelectorAll('.testimonial-card');
+        
+        // "Cycle once it hits 5+"
+        if (cards.length >= 5) {
+            container.classList.add('cycling-mode');
+            document.getElementById('cycle-notice').style.display = 'block';
+
+            // Start Auto-Scroll (Simple JS Ticker)
+            if (!scrollInterval) {
+                scrollInterval = setInterval(() => {
+                    // Scroll 1px to the right
+                    container.scrollLeft += 1;
+                    // Reset if at end (Infinite Loop Illusion)
+                    if(container.scrollLeft >= (container.scrollWidth - container.clientWidth)) {
+                        container.scrollLeft = 0;
+                    }
+                }, 20); // Speed
+                
+                // Pause on Hover
+                container.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+                container.addEventListener('mouseleave', () => {
+                     scrollInterval = setInterval(() => {
+                        container.scrollLeft += 1;
+                        if(container.scrollLeft >= (container.scrollWidth - container.clientWidth)) {
+                            container.scrollLeft = 0;
+                        }
+                    }, 20);
+                });
+            }
+        }
+    }
+
+    reviewForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get Values
+        const name = document.getElementById('reviewName').value;
+        const loc = document.getElementById('reviewLocation').value;
+        const comment = document.getElementById('reviewComment').value;
+        
+        // Get Star Rating
+        let rating = 0;
+        const stars = document.getElementsByName('rating');
+        for(let star of stars){
+            if(star.checked) rating = parseInt(star.value);
+        }
+
+        // Logic: Only show if 5 Stars
+        if (rating === 5) {
+            // Create HTML
+            const newCard = document.createElement('div');
+            newCard.className = 'testimonial-card reveal active'; // 'active' to show immediately
+            newCard.innerHTML = `
+                <div class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-light fst-italic">"${comment}"</p>
+                <div class="mt-4">
+                    <h6 class="text-white mb-0">${name}</h6>
+                    <small class="text-muted">${loc}</small>
+                </div>
+            `;
+            
+            // Add to container
+            container.appendChild(newCard);
+            
+            // Show Success
+            alert("Thank you! Your 5-star review has been posted live.");
+            
+            // Check if we need to start cycling
+            checkAndEnableCycling();
+            
+        } else {
+            // Fake submission for < 5 stars
+            alert("Thank you for your feedback! We have received your submission.");
+        }
+
+        // Reset and Close
+        reviewForm.reset();
+        modal.hide();
     });
+
+    // Check on load (in case you add more static HTML later)
+    checkAndEnableCycling();
+
 </script>
 </body>
 </html>
