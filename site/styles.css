@@ -1411,6 +1411,246 @@ footer a:hover {
     background: rgba(255, 255, 255, 0.02);
 }
 
+/* --- Dashboard Cards (Homepage Hub) --- */
+.dash-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.dash-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.dash-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    color: inherit;
+}
+
+.dash-card:hover::before {
+    opacity: 1;
+}
+
+.dash-card-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 1.25rem;
+}
+
+.dash-card h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.dash-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.dash-card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+}
+
+.dash-card:hover .dash-card-link {
+    opacity: 1;
+}
+
+/* Featured compare card */
+.dash-feature-card {
+    display: block;
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+.dash-feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: inherit;
+}
+
+.dash-feature-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+}
+
+/* Quick action cards */
+.dash-action-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+    height: 100%;
+}
+
+.dash-action-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: inherit;
+}
+
+.dash-action-card.dash-action-primary {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dash-action-card.dash-action-primary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.dash-action-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.dash-action-card h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.dash-action-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.dash-action-arrow {
+    flex-shrink: 0;
+    color: var(--text-dim);
+    margin-left: auto;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.dash-action-card:hover .dash-action-arrow {
+    color: white;
+    transform: translateX(4px);
+}
+
+/* Resource cards */
+.dash-resource-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+.dash-resource-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: inherit;
+}
+
+.dash-resource-badge {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1.25rem;
+}
+
+.dash-resource-card h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.dash-resource-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
 /* --- Enterprise responsive additions --- */
 @media (max-width: 991px) {
     .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1425,6 +1665,10 @@ footer a:hover {
     .comparison-table tbody td { padding: 10px 12px; }
     .timeline { padding-left: 30px; }
     .timeline-item::before { left: -23px; }
+    .dash-action-card { flex-direction: column; text-align: center; gap: 12px; }
+    .dash-action-arrow { display: none; }
+    .dash-feature-card .row { text-align: center; }
+    .dash-feature-card { padding: 24px 20px; }
 }
 
 @media (max-width: 576px) {
