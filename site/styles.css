@@ -964,3 +964,394 @@ footer a:hover {
         font-size: 1.8rem;
     }
 }
+
+/* --- Enterprise Top Bar --- */
+.header-top {
+    background: #0a0a0a;
+    padding: 8px 0;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    z-index: 1051;
+}
+
+.header-top span {
+    color: var(--text-muted);
+}
+
+.header-top .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-top .top-bar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.header-top .top-bar-links a {
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-top .top-bar-links a:hover {
+    color: white;
+}
+
+/* --- Content Blocks (Long-form pages) --- */
+.content-block {
+    padding: 70px 0;
+    background: var(--dark-bg);
+}
+
+.content-block + .content-block {
+    border-top: 1px solid var(--border-subtle);
+}
+
+.content-narrow {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.content-narrow h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.85rem;
+}
+
+.content-narrow h3 {
+    color: white;
+    margin: 2rem 0 0.75rem;
+    font-size: 1.35rem;
+}
+
+.content-narrow p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.content-narrow ul,
+.content-narrow ol {
+    margin: 12px 0 20px 20px;
+    color: var(--text-muted);
+}
+
+.content-narrow ul {
+    list-style: disc;
+}
+
+.content-narrow ol {
+    list-style: decimal;
+}
+
+.content-narrow li {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.content-narrow a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.content-narrow a:hover {
+    color: var(--text-muted);
+}
+
+/* --- Notice Bar --- */
+.notice-bar {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid white;
+    padding: 18px 24px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 24px 0;
+}
+
+.notice-bar p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* --- Timeline --- */
+.timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--dark-bg);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.timeline-item p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+
+/* --- Card Grid (Enterprise layout) --- */
+.card-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.card-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.enterprise-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    transition: var(--transition-smooth);
+}
+
+.enterprise-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.enterprise-card .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.enterprise-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.enterprise-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.enterprise-card .card-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: white;
+}
+
+.enterprise-card .card-link:hover {
+    color: var(--text-muted);
+}
+
+/* --- Split Layout --- */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.split-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.split-content p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* --- Feature List --- */
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.feature-item .fi-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.feature-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* --- Comparison Table (Monochrome) --- */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-glass);
+}
+
+.comparison-table thead th {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.comparison-table thead th:first-child {
+    width: 200px;
+}
+
+.comparison-table tbody td {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.comparison-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.comparison-table .check {
+    color: white;
+    font-weight: 700;
+}
+
+/* --- CTA Banner (Enterprise) --- */
+.cta-banner {
+    background: linear-gradient(135deg, #111 0%, #000 100%);
+    padding: 70px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.cta-banner h2 {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 2rem;
+}
+
+.cta-banner p {
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    font-size: 1.05rem;
+}
+
+/* --- Section Alt Background --- */
+.section-alt {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Enterprise responsive additions --- */
+@media (max-width: 991px) {
+    .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .split { grid-template-columns: 1fr; gap: 32px; }
+    .header-top .top-bar-links { display: none; }
+}
+
+@media (max-width: 768px) {
+    .card-grid-3, .card-grid-2 { grid-template-columns: 1fr; }
+    .comparison-table { font-size: 0.82rem; }
+    .comparison-table thead th,
+    .comparison-table tbody td { padding: 10px 12px; }
+    .timeline { padding-left: 30px; }
+    .timeline-item::before { left: -23px; }
+}
+
+@media (max-width: 576px) {
+    .header-top .top-bar-inner { justify-content: center; }
+}

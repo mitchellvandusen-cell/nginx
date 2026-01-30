@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Term Life Insurance | Mitch Van Dusen Insurance</title>
+    <meta name="description" content="Learn about term life insurance — affordable, flexible coverage for a set period. Protect your family's future with competitive rates from top-rated carriers.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- Enterprise Top Bar --- */
+        .header-top {
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 10px 0;
+            font-size: 0.82rem;
+            color: #888;
+            z-index: 1060;
+            position: relative;
+        }
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .top-bar-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .top-bar-links a {
+            color: #aaa;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .top-bar-links a:hover {
+            color: white;
+        }
+        /* Adjust navbar position for top bar */
+        .navbar {
+            top: 0;
+        }
+        body {
+            padding-top: 0;
+        }
+
+        /* --- Content Narrow --- */
+        .content-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-narrow h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.2rem;
+        }
+        .content-narrow h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .content-narrow p {
+            color: #bbb;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+        }
+        .content-narrow ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        .content-narrow ul li {
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.8;
+            padding: 6px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+        .content-narrow ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: white;
+            font-size: 0.8rem;
+            top: 9px;
+        }
+
+        /* --- Notice Bar --- */
+        .notice-bar {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-left: 4px solid white;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin: 2rem 0;
+        }
+        .notice-bar p {
+            margin: 0;
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .notice-bar strong {
+            color: white;
+        }
+
+        /* --- Term Length Cards --- */
+        .term-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+        .term-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+        }
+        .term-card .term-years {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .term-card .term-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .term-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* --- Use Case Cards --- */
+        .use-case-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 36px 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .use-case-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+        }
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+        .use-case-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 1.2rem;
+        }
+        .use-case-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+        .use-case-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* --- Benefit List (styled) --- */
+        .benefit-grid-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .benefit-grid-item:last-child {
+            border-bottom: none;
+        }
+        .benefit-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+        }
+        .benefit-grid-item h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+        .benefit-grid-item p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- Section Divider --- */
+        .section-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+            margin: 0;
+            border: none;
+        }
+
+        /* --- Content Section Spacing --- */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        /* --- Consider Item --- */
+        .consider-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .consider-item i {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            min-width: 18px;
+        }
+        .consider-item p {
+            margin: 0;
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-inner {
+                justify-content: center;
+                text-align: center;
+            }
+            .top-bar-inner > span {
+                display: none;
+            }
+            .content-narrow h2 {
+                font-size: 1.8rem;
+            }
+            .term-card .term-years {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Enterprise Top Bar -->
+<div class="header-top"><div class="container"><div class="top-bar-inner"><span>Licensed agent ready to help — call or text anytime</span><div class="top-bar-links"><a href="tel:346-531-5256"><i class="fa-solid fa-phone"></i>346-531-5256</a><a href="book.html"><i class="fa-regular fa-calendar"></i>Book a Call</a></div></div></div></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="index.html">
+            <i class="fa-solid fa-shield-halved text-white"></i>
+            <span class="brand-font">Mitch Van Dusen</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="services.html" role="button" data-bs-toggle="dropdown">Coverage Options</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="term-life.html"><i class="fa-solid fa-clock"></i>Term Life</a></li>
+                        <li><a class="dropdown-item" href="services.html#whole-life"><i class="fa-solid fa-infinity"></i>Whole Life</a></li>
+                        <li><a class="dropdown-item" href="services.html#iul"><i class="fa-solid fa-chart-line"></i>IUL</a></li>
+                        <li><a class="dropdown-item" href="services.html#final-expense"><i class="fa-solid fa-hand-holding-heart"></i>Final Expense</a></li>
+                        <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.08);"></li>
+                        <li><a class="dropdown-item" href="services.html"><i class="fa-solid fa-table-columns"></i>Compare Plans</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="faq.html#why"><i class="fa-solid fa-shield-heart"></i>Why Life Insurance</a></li>
+                        <li><a class="dropdown-item" href="faq.html#when"><i class="fa-solid fa-calendar-check"></i>When to Buy</a></li>
+                        <li><a class="dropdown-item" href="faq.html"><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item ms-2">
+                    <a href="tel:346-531-5256" class="btn glass-btn btn-sm">
+                        <i class="fa-solid fa-phone me-2"></i>346-531-5256
+                    </a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a href="book.html" class="btn btn-cta btn-sm">Book Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container" style="position: relative;">
+        <div class="states-badge mb-4 reveal active">
+            <i class="fa-solid fa-clock"></i>
+            Most Popular Coverage Type
+        </div>
+        <h1 class="text-white reveal active">Term Life Insurance</h1>
+        <p class="reveal active">Affordable, straightforward protection for the years that matter most. Cover your family's financial future without breaking the budget.</p>
+        <div class="breadcrumb-nav reveal active">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="services.html">Coverage Options</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>Term Life Insurance</span>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Bar -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <span class="stat-number">10-30</span>
+                    <span class="stat-label">Year Terms</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <span class="stat-number">$50K+</span>
+                    <span class="stat-label">Coverage Available</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Carrier Partners</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <span class="stat-number">$0</span>
+                    <span class="stat-label">Consultation Fee</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What Is Term Life Insurance -->
+<section class="content-section bg-black">
+    <div class="container">
+        <div class="content-narrow reveal">
+            <span class="section-label">Overview</span>
+            <h2>What Is Term Life Insurance?</h2>
+            <p>Term life insurance is the most straightforward and affordable type of life insurance available. It provides a guaranteed death benefit to your beneficiaries if you pass away during a specific period of time — known as the "term." You choose the term length and coverage amount when you purchase the policy, and you pay a fixed premium for the duration of that term.</p>
+            <p>Unlike permanent life insurance products such as whole life or indexed universal life, term life insurance is designed purely for protection. There is no cash value component, investment element, or savings feature built in. This simplicity is what makes it the most cost-effective option for people who need significant coverage during their working years, while raising children, or while paying off a mortgage.</p>
+            <p>Term life insurance is often referred to as "pure insurance" because every dollar of your premium goes directly toward the death benefit protection. For many families, it represents the smartest financial decision they can make — securing hundreds of thousands of dollars in protection for just pennies on the dollar each day.</p>
+
+            <div class="notice-bar">
+                <p><strong><i class="fa-solid fa-lightbulb me-2"></i>Did you know?</strong> A healthy 30-year-old can often get $500,000 in term life coverage for under $25 per month — that is less than a dollar a day to protect your family's entire financial future. The younger and healthier you are when you apply, the lower your rate will be.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- How Term Life Works -->
+<section class="content-section" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="content-narrow reveal">
+            <span class="section-label">The Basics</span>
+            <h2>How Term Life Insurance Works</h2>
+            <p>The mechanics of term life insurance are refreshingly simple. Understanding how it works can help you make a confident decision about whether it is the right fit for your family's needs.</p>
+        </div>
+        <div class="content-narrow">
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 reveal">
+                    <div class="glass-panel-solid p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="step-number" style="min-width:48px;height:48px;font-size:1.1rem;">1</div>
+                            <h5 class="text-white mb-0" style="font-family:'Inter',sans-serif;font-weight:600;">Choose Your Term</h5>
+                        </div>
+                        <p class="text-muted mb-0" style="font-size:0.95rem;">Select a coverage period that aligns with your financial obligations — typically 10, 15, 20, 25, or 30 years. Consider how long you need protection based on your mortgage, children's ages, and retirement timeline.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal">
+                    <div class="glass-panel-solid p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="step-number" style="min-width:48px;height:48px;font-size:1.1rem;">2</div>
+                            <h5 class="text-white mb-0" style="font-family:'Inter',sans-serif;font-weight:600;">Select Coverage Amount</h5>
+                        </div>
+                        <p class="text-muted mb-0" style="font-size:0.95rem;">Determine how much your family would need to maintain their standard of living. A common guideline is 10-15 times your annual income, but I will help you calculate the exact amount based on your debts, expenses, and goals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal">
+                    <div class="glass-panel-solid p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="step-number" style="min-width:48px;height:48px;font-size:1.1rem;">3</div>
+                            <h5 class="text-white mb-0" style="font-family:'Inter',sans-serif;font-weight:600;">Pay a Fixed Premium</h5>
+                        </div>
+                        <p class="text-muted mb-0" style="font-size:0.95rem;">Your premium is locked in for the entire term — it will never increase. You pay the same affordable amount every month or year, making it easy to budget for. Rates are based on your age, health, and coverage amount at time of application.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal">
+                    <div class="glass-panel-solid p-4 h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="step-number" style="min-width:48px;height:48px;font-size:1.1rem;">4</div>
+                            <h5 class="text-white mb-0" style="font-family:'Inter',sans-serif;font-weight:600;">Your Family Is Protected</h5>
+                        </div>
+                        <p class="text-muted mb-0" style="font-size:0.95rem;">If you pass away during the term, your beneficiaries receive the full death benefit — tax-free. They can use the money however they need: paying the mortgage, covering daily expenses, funding education, or replacing lost income.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice-bar mt-5 reveal">
+                <p><strong><i class="fa-solid fa-rotate me-2"></i>What happens when the term ends?</strong> When your term expires, you typically have three options: (1) renew the policy at a higher rate based on your current age, (2) convert to a permanent policy without a new medical exam (if your policy has a conversion option), or (3) let the coverage expire if you no longer need it. I always recommend policies with conversion privileges so you have maximum flexibility.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Common Term Lengths -->
+<section class="content-section bg-black">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Term Options</span>
+            <h2 class="section-title text-white">Common Term Lengths</h2>
+            <p class="section-subtitle mx-auto">Choose a term that matches your financial timeline. Here are the most popular options and who they typically serve best.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="term-card">
+                    <div class="term-years">10</div>
+                    <div class="term-label">Years</div>
+                    <p>Best for short-term needs like covering a business loan, bridging to retirement, or supplementing employer coverage. The most affordable option with the lowest monthly premiums.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="term-card">
+                    <div class="term-years">15</div>
+                    <div class="term-label">Years</div>
+                    <p>A great middle ground for people with 15-year mortgages or those whose children will be independent within that timeframe. Slightly more than a 10-year term with significantly more coverage time.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="term-card">
+                    <div class="term-years">20</div>
+                    <div class="term-label">Years</div>
+                    <p>The most popular choice overall. Covers young families through the years when children are growing up, matches most mortgage timelines, and protects income during peak earning years.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="term-card">
+                    <div class="term-years">25</div>
+                    <div class="term-label">Years</div>
+                    <p>Ideal for new parents who want coverage through their child's college graduation and early adult years. Provides extended protection while keeping premiums reasonable.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="term-card">
+                    <div class="term-years">30</div>
+                    <div class="term-label">Years</div>
+                    <p>Maximum term length available from most carriers. Best for young buyers who want the longest possible protection window. Lock in the lowest rates while you are young and healthy.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5 reveal">
+            <p class="text-muted" style="font-size: 0.95rem;">Not sure which term length is right for you? <a href="book.html" class="text-white fw-bold">Schedule a free consultation</a> and I will help you find the perfect fit.</p>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Who Is Term Life Best For -->
+<section class="content-section" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">Ideal Candidates</span>
+            <h2 class="section-title text-white">Who Is Term Life Best For?</h2>
+            <p class="section-subtitle mx-auto">Term life insurance is the right choice for millions of Americans. Here are the most common situations where term coverage makes the most sense.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-baby-carriage"></i></div>
+                    <h4>Young Parents</h4>
+                    <p>If you have children who depend on your income, term life insurance ensures they are financially protected during their most vulnerable years. A 20 or 30-year term can cover them from infancy through college graduation and early independence. The death benefit can replace your income, fund their education, and keep the household running.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <h4>Homeowners With a Mortgage</h4>
+                    <p>Your mortgage is likely your family's largest financial obligation. Term life insurance can be matched to the length of your mortgage, guaranteeing that your family can stay in their home if you pass away. No one should have to worry about losing their home during the worst moment of their life.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h4>Primary Income Earners</h4>
+                    <p>If your household depends on your paycheck, a term life policy can replace your income for the years your family needs it most. Financial advisors typically recommend coverage of 10-15 times your annual salary to maintain your family's standard of living and cover ongoing expenses.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>Parents Planning for Education</h4>
+                    <p>College costs continue to rise year after year. A term life policy ensures that your children's education fund is protected even if you are not there to contribute to it. Choose a term that extends through their expected graduation date so this critical goal stays on track.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-ring"></i></div>
+                    <h4>Newlyweds &amp; Couples</h4>
+                    <p>Starting a life together often means shared debts — student loans, car payments, a new home. Term life insurance protects your spouse from inheriting financial burdens. It is also one of the most affordable times to buy, since you are likely young and healthy when starting out together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Key Benefits -->
+<section class="content-section bg-black">
+    <div class="container">
+        <div class="content-narrow reveal">
+            <span class="section-label">Advantages</span>
+            <h2>Key Benefits of Term Life Insurance</h2>
+            <p>Term life insurance offers several distinct advantages that make it the most popular choice for families and individuals looking for reliable, affordable protection.</p>
+        </div>
+        <div class="content-narrow">
+            <div class="glass-panel p-4 p-md-5 reveal">
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div>
+                        <h5>Most Affordable Option</h5>
+                        <p>Dollar for dollar, term life insurance provides more coverage for less money than any other type of life insurance. A healthy 30-year-old can secure $500,000 in coverage for as little as $20-30 per month.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                        <h5>Level Premiums</h5>
+                        <p>Your premium is locked in the moment you purchase. It stays the same for the entire duration of the term — whether that is 10, 20, or 30 years. No surprises, no increases, no adjustments.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-arrows-left-right"></i></div>
+                    <div>
+                        <h5>Flexible Coverage Amounts</h5>
+                        <p>Choose coverage amounts ranging from $50,000 to $10 million or more. This flexibility lets you tailor your policy to exactly what your family needs — no more, no less.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-repeat"></i></div>
+                    <div>
+                        <h5>Conversion Options</h5>
+                        <p>Many term policies include a conversion privilege that allows you to convert to a permanent policy (whole life or universal life) without undergoing a new medical exam. This gives you flexibility as your needs evolve.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div>
+                        <h5>Simple to Understand</h5>
+                        <p>Term life is the most straightforward type of life insurance. You choose a term, choose an amount, pay your premium, and your family is covered. There is no cash value to track, no investment component to monitor, and no complex moving parts.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div>
+                        <h5>Tax-Free Death Benefit</h5>
+                        <p>The death benefit your beneficiaries receive is generally income tax-free. This means the full amount goes directly to your family when they need it most, without any portion being withheld for taxes.</p>
+                    </div>
+                </div>
+                <div class="benefit-grid-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div>
+                        <h5>Fast Approval Available</h5>
+                        <p>Many carriers now offer accelerated underwriting with no medical exam required. Depending on your health profile and coverage amount, you could be approved the same day you apply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Things to Consider -->
+<section class="content-section" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="content-narrow reveal">
+            <span class="section-label">Important Considerations</span>
+            <h2>Things to Consider Before Buying</h2>
+            <p>While term life insurance is an excellent choice for most people, it is important to understand its limitations and nuances so you can make a fully informed decision.</p>
+
+            <div class="glass-panel-solid p-4 p-md-5 mt-4">
+                <div class="consider-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p><strong class="text-white">Coverage expires.</strong> Unlike permanent life insurance, term coverage ends when the term is over. If you outlive your policy (which is statistically likely and a good thing), you will not receive a payout. The policy served its purpose by protecting you during your most financially vulnerable years.</p>
+                </div>
+                <div class="consider-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p><strong class="text-white">No cash value.</strong> Term life insurance does not build cash value or serve as a savings vehicle. Every dollar of your premium goes toward the death benefit. If you want coverage that also builds equity, consider whole life or IUL as alternatives or supplements.</p>
+                </div>
+                <div class="consider-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p><strong class="text-white">Renewal costs more.</strong> If you want to keep coverage after your term ends, the renewed premium will be significantly higher because it is based on your current age. This is why choosing the right initial term length is so important.</p>
+                </div>
+                <div class="consider-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p><strong class="text-white">Health matters at application.</strong> Your premium is determined by your health at the time you apply. Waiting to buy means you may face higher rates or potential health issues that could affect your eligibility. The best time to buy is when you are young and healthy.</p>
+                </div>
+                <div class="consider-item">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p><strong class="text-white">Not ideal for estate planning.</strong> Because term coverage has an expiration date, it is generally not used for estate planning purposes. If you need coverage for wealth transfer or estate tax purposes, a permanent policy may be more appropriate.</p>
+                </div>
+            </div>
+
+            <div class="notice-bar mt-5">
+                <p><strong><i class="fa-solid fa-user-tie me-2"></i>My recommendation:</strong> For most families, term life insurance is the foundation of a solid protection strategy. It delivers the most coverage for the least cost during the years you need it most. Many of my clients also add a smaller permanent policy alongside their term coverage for lifelong protection. During our consultation, I will help you determine the right combination for your situation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- How I Help / Process -->
+<section class="content-section bg-black">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+            <span class="section-label">My Process</span>
+            <h2 class="section-title text-white">How I Help You Get Covered</h2>
+            <p class="section-subtitle mx-auto">As an independent broker, I work for you — not the insurance companies. Here is how the process works from start to finish.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4 class="text-white mb-3" style="font-family: 'Inter', sans-serif; font-weight: 600;">Free Consultation</h4>
+                    <p class="text-muted">We discuss your family's needs, financial obligations, and goals. I help you determine the right coverage amount and term length. No pressure, no obligations — just honest guidance.</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4 class="text-white mb-3" style="font-family: 'Inter', sans-serif; font-weight: 600;">Shop &amp; Compare</h4>
+                    <p class="text-muted">I compare quotes from 8+ top-rated carriers to find you the best rate for your profile. Different carriers evaluate risk differently, so shopping around can save you hundreds per year.</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal">
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4 class="text-white mb-3" style="font-family: 'Inter', sans-serif; font-weight: 600;">Get Protected</h4>
+                    <p class="text-muted">Choose the policy that fits best and I handle the entire application process. Many clients are approved the same day. Ongoing support is always included — I am here whenever you need me.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="py-5" style="background: linear-gradient(135deg, #111 0%, #000 100%);">
+    <div class="container py-5 text-center reveal">
+        <h2 class="display-5 text-white fw-bold mb-3">Ready to Protect Your Family?</h2>
+        <p class="text-white-50 fs-5 mb-5 mx-auto" style="max-width: 650px;">Get a free, no-obligation term life insurance quote. I will shop across 8+ top carriers to find you the best rate — there is never a cost for my services.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="book.html" class="btn btn-cta btn-lg px-5 py-3 rounded-pill">
+                <i class="fa-regular fa-calendar me-2"></i>Book a Free Consultation
+            </a>
+            <a href="tel:346-531-5256" class="btn btn-cta-outline btn-lg px-5 py-3 rounded-pill">
+                <i class="fa-solid fa-phone me-2"></i>Call 346-531-5256
+            </a>
+        </div>
+        <p class="text-white-50 mt-4 mb-0" style="font-size: 0.85rem;">Licensed in TX, FL, OH, GA, and NC &nbsp;|&nbsp; NPN #21705771</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <span class="footer-brand"><i class="fa-solid fa-shield-halved me-2"></i>Mitch Van Dusen</span>
+                <p class="mt-2" style="font-size: 0.9rem; line-height: 1.8;">Licensed life insurance broker helping families across multiple states secure their financial future with personalized coverage solutions.</p>
+                <div class="mt-3">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Coverage Options</a>
+                <a href="testimonials.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Coverage</h5>
+                <a href="term-life.html">Term Life</a>
+                <a href="services.html#whole-life">Whole Life</a>
+                <a href="services.html#iul">IUL</a>
+                <a href="services.html#final-expense">Final Expense</a>
+                <a href="services.html">Compare Plans</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Resources</h5>
+                <a href="faq.html">FAQ</a>
+                <a href="book.html">Book Online</a>
+                <a href="carriers.html">Our Carriers</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Contact</h5>
+                <a href="tel:346-531-5256"><i class="fa-solid fa-phone me-2"></i>346-531-5256</a>
+                <a href="sms:346-531-5256"><i class="fa-solid fa-message me-2"></i>Text Me</a>
+                <a href="book.html"><i class="fa-regular fa-calendar me-2"></i>Schedule Call</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+                <p class="mb-1 small">NPN #21705771 | Licensed in Multiple States</p>
+                <p class="mb-0 small">&copy; 2026 Mitch Van Dusen. All rights reserved.</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+                <a href="privacy.html" class="small" style="color: #666;">Privacy Policy</a>
+                <a href="terms.html" class="small" style="color: #666;">Terms of Service</a>
+                <span class="badge-state">TX</span>
+                <span class="badge-state">FL</span>
+                <span class="badge-state">OH</span>
+                <span class="badge-state">GA</span>
+                <span class="badge-state">NC</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
