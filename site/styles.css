@@ -23,6 +23,13 @@
     --radius-md: 16px;
     --radius-sm: 12px;
     --radius-pill: 50px;
+
+    /* Override Bootstrap variables for dark theme */
+    --bs-body-color: #f8f9fa;
+    --bs-body-bg: #000000;
+    --bs-heading-color: #f8f9fa;
+    --bs-secondary-color: #aaaaaa;
+    --bs-emphasis-color: #ffffff;
 }
 
 /* --- Reset & Base --- */
@@ -40,9 +47,25 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, .brand-font {
+h1, h2, h3, h4, h5, h6, .brand-font {
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
+    color: #f8f9fa;
+}
+
+/* --- Bootstrap Dark-Theme Overrides ---
+   The entire site uses dark backgrounds, so Bootstrap's default
+   light-theme utility colors must be overridden for visibility. */
+.text-muted {
+    color: #aaaaaa !important;
+}
+
+.text-dark {
+    color: #cccccc !important;
+}
+
+p, li, td, th, span, small, label {
+    color: inherit;
 }
 
 a {
@@ -436,6 +459,19 @@ img {
     color: black;
 }
 
+.carriers-section h1, .carriers-section h2, .carriers-section h3,
+.carriers-section h4, .carriers-section h5, .carriers-section h6 {
+    color: black;
+}
+
+.carriers-section .text-muted {
+    color: #6c757d !important;
+}
+
+.carriers-section p {
+    color: #333;
+}
+
 .carrier-logo {
     width: 160px;
     height: 80px;
@@ -535,13 +571,18 @@ img {
     font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: white;
 }
 
 .service-card p {
-    color: var(--text-muted);
+    color: #aaaaaa;
     font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 0;
+}
+
+.service-card .card-link {
+    color: white;
 }
 
 /* --- Testimonials --- */
@@ -708,6 +749,15 @@ img {
     text-align: center;
     padding: 30px 20px;
     position: relative;
+    color: #f8f9fa;
+}
+
+.process-step h4 {
+    color: white;
+}
+
+.process-step p {
+    color: #aaaaaa;
 }
 
 .step-number {
