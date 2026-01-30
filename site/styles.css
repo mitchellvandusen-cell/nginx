@@ -217,6 +217,7 @@ img {
     padding: 0.8rem 0;
     z-index: 1050;
     transition: var(--transition-smooth);
+    top: 33px;
 }
 
 .navbar.scrolled {
@@ -343,7 +344,7 @@ img {
 
 /* --- Page Headers (for inner pages) --- */
 .page-header {
-    padding: 160px 0 80px;
+    padding: 190px 0 80px;
     background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #000000 70%);
     text-align: center;
     position: relative;
@@ -978,7 +979,7 @@ footer a:hover {
     }
 
     .page-header {
-        padding: 130px 0 60px;
+        padding: 160px 0 60px;
     }
 
     .page-header h1 {
@@ -1023,8 +1024,11 @@ footer a:hover {
     color: var(--text-dim);
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-    z-index: 1051;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1060;
 }
 
 .header-top span {
