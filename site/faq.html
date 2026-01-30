@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Mitch Van Dusen Insurance</title>
+    <meta name="description" content="Frequently asked questions about life insurance, coverage options, costs, and working with Mitch Van Dusen as your insurance broker.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="index.html">
+            <i class="fa-solid fa-shield-halved text-white"></i>
+            <span class="brand-font">Mitch Van Dusen</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="services.html"><i class="fa-solid fa-heart-pulse"></i>All Services</a></li>
+                        <li><a class="dropdown-item" href="services.html#term-life"><i class="fa-solid fa-clock"></i>Term Life Insurance</a></li>
+                        <li><a class="dropdown-item" href="services.html#whole-life"><i class="fa-solid fa-infinity"></i>Whole Life Insurance</a></li>
+                        <li><a class="dropdown-item" href="services.html#final-expense"><i class="fa-solid fa-hand-holding-heart"></i>Final Expense</a></li>
+                        <li><a class="dropdown-item" href="services.html#iul"><i class="fa-solid fa-chart-line"></i>Indexed Universal Life</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="carriers.html">Carriers</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item ms-2">
+                    <a href="tel:346-531-5256" class="btn glass-btn btn-sm">
+                        <i class="fa-solid fa-phone me-2"></i>346-531-5256
+                    </a>
+                </li>
+                <li class="nav-item ms-2">
+                    <a href="book.html" class="btn btn-cta btn-sm">Book Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container" style="position: relative;">
+        <h1 class="text-white reveal active">Frequently Asked Questions</h1>
+        <p class="reveal active">Everything you need to know about life insurance and working with me.</p>
+        <div class="breadcrumb-nav reveal active">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>FAQ</span>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Content -->
+<section class="py-5 bg-black">
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- General Questions -->
+            <div class="col-lg-6 reveal">
+                <span class="section-label">General</span>
+                <h3 class="text-white mb-4">About Life Insurance</h3>
+
+                <div class="faq-item open">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What is life insurance?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Life insurance is a contract between you and an insurance company. You pay regular premiums, and in return, the company pays a death benefit to your beneficiaries when you pass away. It's designed to financially protect the people who depend on you.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How much life insurance do I need?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A common rule of thumb is 10–15x your annual income, but the right amount depends on your specific situation — including debts, dependents, future goals (like college tuition), and existing savings. During our consultation, I'll help you calculate exactly what you need.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What's the difference between term and whole life?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Term life covers you for a set period (10–30 years) and is the most affordable option. Whole life covers you for your entire life and builds cash value over time. Term is great for temporary needs; whole life is ideal for permanent protection and wealth building.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Do I need a medical exam to get covered?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not necessarily. Many carriers now offer no-exam policies with instant or accelerated underwriting. Some products, like final expense, require no exam at all. I can help you find coverage that matches your health profile and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Can I get life insurance with pre-existing conditions?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Different carriers evaluate health conditions differently, which is exactly why working with an independent broker like me is so valuable. I know which carriers are most favorable for specific conditions and can find you the best option.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How much does life insurance cost?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It depends on your age, health, coverage amount, and type of policy. A healthy 30-year-old can often get $500,000 in term coverage for under $25/month. The best way to find out is to get a personalized quote — which I provide for free.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Working With Me -->
+            <div class="col-lg-6 reveal">
+                <span class="section-label">Working With Me</span>
+                <h3 class="text-white mb-4">About My Services</h3>
+
+                <div class="faq-item open">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Is there a cost for your services?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. My services are 100% free to you. I'm compensated by the insurance carriers when a policy is placed. This means you get expert, unbiased guidance at no additional cost — the price you pay for a policy is the same whether you buy direct or through me.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What states are you licensed in?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I'm currently licensed in Texas, Florida, Ohio, Georgia, and North Carolina. I'm actively expanding to additional states. If your state isn't listed, reach out anyway — I may be able to help or can refer you to a trusted colleague.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Why use a broker instead of buying direct?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A broker works for you, not the insurance company. I shop across 8+ carriers to find the best rate and coverage for your situation. A captive agent can only sell their company's products. With me, you get more options, better rates, and unbiased advice.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How long does the process take?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It varies by product and carrier. Some policies can be approved the same day with no medical exam. Traditional underwritten policies may take 2–4 weeks. I'll guide you through the timeline for your specific situation so there are no surprises.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What if I already have a policy?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>That's great! I can review your existing coverage to make sure it still fits your needs. Life changes — marriage, kids, new home — often mean your coverage needs to change too. There's no cost for a policy review.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>What happens after I get a policy?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I don't disappear after the sale. I'm your ongoing point of contact for any questions, policy changes, or future needs. Whether you need to update beneficiaries, adjust coverage, or add a new policy, I'm here for the long haul.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Still Have Questions CTA -->
+<section class="py-5" style="background: linear-gradient(135deg, #111 0%, #000 100%);">
+    <div class="container py-5 text-center reveal">
+        <h2 class="display-5 text-white fw-bold mb-3">Still Have Questions?</h2>
+        <p class="text-white-50 fs-5 mb-5 mx-auto" style="max-width: 600px;">I'm always happy to answer your questions. Reach out anytime — no question is too small.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="contact.html" class="btn btn-cta btn-lg px-5 py-3 rounded-pill">
+                <i class="fa-solid fa-envelope me-2"></i>Contact Me
+            </a>
+            <a href="book.html" class="btn btn-cta-outline btn-lg px-5 py-3 rounded-pill">
+                <i class="fa-regular fa-calendar me-2"></i>Book a Call
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <span class="footer-brand"><i class="fa-solid fa-shield-halved me-2"></i>Mitch Van Dusen</span>
+                <p class="mt-2" style="font-size: 0.9rem; line-height: 1.8;">Licensed life insurance broker helping families across multiple states secure their financial future with personalized coverage solutions.</p>
+                <div class="mt-3">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Navigation</h5>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="carriers.html">Carriers</a>
+                <a href="testimonials.html">Reviews</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Services</h5>
+                <a href="services.html#term-life">Term Life</a>
+                <a href="services.html#whole-life">Whole Life</a>
+                <a href="services.html#final-expense">Final Expense</a>
+                <a href="services.html#iul">Indexed Universal</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Resources</h5>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="book.html">Book Online</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5>Contact</h5>
+                <a href="tel:346-531-5256"><i class="fa-solid fa-phone me-2"></i>346-531-5256</a>
+                <a href="sms:346-531-5256"><i class="fa-solid fa-message me-2"></i>Text Me</a>
+                <a href="book.html"><i class="fa-regular fa-calendar me-2"></i>Schedule Call</a>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+                <p class="mb-1 small">NPN #21705771 | Licensed in Multiple States</p>
+                <p class="mb-0 small">&copy; 2026 Mitch Van Dusen. All rights reserved.</p>
+            </div>
+            <div class="d-flex gap-3 flex-wrap">
+                <span class="badge-state">TX</span>
+                <span class="badge-state">FL</span>
+                <span class="badge-state">OH</span>
+                <span class="badge-state">GA</span>
+                <span class="badge-state">NC</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
