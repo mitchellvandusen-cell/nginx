@@ -279,7 +279,7 @@ img {
 
 /* Dropdown menus */
 .dropdown-menu {
-    background: rgba(17, 17, 17, 0.97);
+    background: #222;
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
