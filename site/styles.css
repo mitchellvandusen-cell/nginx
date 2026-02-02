@@ -810,7 +810,11 @@ select option {
     color: var(--text-muted);
     margin-bottom: 8px;
 }
-
+/* FIX FOR FORM DROPDOWNS (State/Interest) */
+.contact-form option {
+    background-color: #222;
+    color: white;
+}
 /* --- Info Card --- */
 .info-card {
     background: rgba(255, 255, 255, 0.03);
