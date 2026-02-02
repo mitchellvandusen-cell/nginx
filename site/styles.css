@@ -279,26 +279,43 @@ img {
 
 /* Dropdown menus */
 .dropdown-menu {
+    --bs-dropdown-bg: rgba(17, 17, 17, 0.97);
+    --bs-dropdown-color: #ffffff;
+    --bs-dropdown-link-color: #ffffff;
+    --bs-dropdown-link-hover-color: #ffffff;
+    --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.12);
+    --bs-dropdown-link-active-color: #ffffff;
+    --bs-dropdown-link-active-bg: rgba(255, 255, 255, 0.15);
+    --bs-dropdown-border-color: rgba(255, 255, 255, 0.1);
+    --bs-dropdown-divider-bg: rgba(255, 255, 255, 0.1);
     background: rgba(17, 17, 17, 0.97);
     backdrop-filter: blur(20px);
-    border: 1px solid var(--border-subtle);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-sm);
     padding: 0.5rem;
     margin-top: 0.5rem;
     min-width: 220px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 .dropdown-item {
-    color: #ccc;
+    color: #ffffff !important;
     padding: 0.6rem 1rem;
     border-radius: 8px;
     font-size: 0.9rem;
     transition: var(--transition-smooth);
 }
 
-.dropdown-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+}
+
+.dropdown-item:active {
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #ffffff !important;
 }
 
 .dropdown-item i {
@@ -767,6 +784,22 @@ img {
 
 .contact-form .form-control::placeholder {
     color: var(--text-dim);
+}
+
+/* Select dropdown options (browser-rendered) */
+.contact-form .form-select option,
+.form-select option,
+select option {
+    background: #111111;
+    color: #ffffff;
+}
+
+/* Global select styling for dark theme */
+.form-select {
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-subtle);
+    color: white;
 }
 
 .contact-form label {
